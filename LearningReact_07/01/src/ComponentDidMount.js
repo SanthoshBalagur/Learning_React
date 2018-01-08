@@ -9,20 +9,26 @@ class ComponentDidMount extends Component{
     data:[]
   }
 
-componentDidMount(){
-  $.get("https://jsonplaceholder.typicode.com/posts", (res) =>{
-    this.setState({data:res})
-  })
-}
-  render(){
-    return(
-      
-  <div>
-    {this.state.data.map((e)=>(
-      <li>{e.title}</li>
-    ))}
-  </div>
-    )
+
+  
+  componentDidMount(){
+    $.get("https://jsonplaceholder.typicode.com/comments", (res) =>{
+      this.setState({data:res})
+    })
+  }
+    render(){
+      return(
+  
+    <div>
+      {this.state.data.map((e,i)=>
+        {
+        for( let x=10;x>=i;){ 
+          return <li>{e.email}</li>;
+        }
+      }
+      )}
+    </div>
+      )
 
     
   }
